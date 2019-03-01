@@ -86,6 +86,11 @@ const ButtonStyle = {
     zIndex:'2',
 }
 
+const DisclaimerStyle = {
+    color:'#ffffff',
+    fontSize:'0.4em',
+}
+
 export default class Main extends React.Component{
 
     constructor(props){
@@ -93,12 +98,12 @@ export default class Main extends React.Component{
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.snapIdRef = React.createRef();
-        this.state = {finalImageUrl:"/P1.png"};
+        this.state = {finalImageUrl:"/P1.PNG"};
         this.updatingImage = this.updatingImage.bind(this);
     }
 
     updatingImage(){
-        const items=["/P1.png", "/P2.png"];
+        const items=["/P1.PNG", "/P2.PNG"];
     
         let finalImage = items[Math.floor(Math.random()*items.length)];
     
@@ -142,6 +147,10 @@ export default class Main extends React.Component{
                     <span className="SpanContainer" style={SpanContainerStyle}>Join the queue</span>
                     <input className="Input" style={InputStyle} type="text" placeholder="Enter Snapchat Id" ref={this.snapIdRef} onKeyPress={this.handleKeyPress}/>
                     <button className="Button" style={ButtonStyle} onClick={this.handleClick}>GET IN!</button>
+                    <span className="Disclaimer" style={DisclaimerStyle}>
+                        By clicking 'GET IN!', you are agreeing to our&nbsp;   
+                        <a href="https://urbanama.com/apps/privacypolicy" style = {{textDecoration: 'none'}}>privacy policy</a>.
+                    </span>
                 </div>
             </div>
         )
