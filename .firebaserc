@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "tbh-test1",
+    "default": "tbh-snap"
+  }
+}
