@@ -6,8 +6,8 @@ const MainStyle = {
     width:'100vw',
     display:'flex',
     flexDirection:'column',
-    alignItems:'center',
-    justifyContent:'center',
+    alignItems:'flex-end',
+    justifyContent:'flex-end',
     backgroundColor:'#080806',
     overflow:'hidden',
     position:'relative',
@@ -39,14 +39,15 @@ const BackdropStyle = {
 }
 
 const CTAContainerStyle = {
+    alignSelf:'flex-end',
+    justifySelf:'flex-end',
     display:'flex',
     flexDirection:'column',
     alignItems:'center',
-    justifyContent:'center',
+    justifyContent:'flex-end',
     overflow:'hidden',
     justifySelf:'flex-end',
-    marginTop:'auto',
-    zIndex:'1',
+    marginTop:'500px',
 }
 
 const SpanContainerStyle = {
@@ -54,7 +55,6 @@ const SpanContainerStyle = {
     fontSize:'1em',
     marginTop:'auto',
     fontWeight:'800',
-    zIndex:'2',
 }
 
 const InputStyle = {
@@ -66,7 +66,6 @@ const InputStyle = {
     margin: '8px 0',
     boxSizing: 'border-box',
     boxShadow:'0px 1px 1px #fffc00',
-    zIndex:'2',
 }
 
 const ButtonStyle = {
@@ -83,7 +82,6 @@ const ButtonStyle = {
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
-    zIndex:'2',
 }
 
 const DisclaimerStyle = {
@@ -97,13 +95,13 @@ export default class Main extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.snapIdRef = React.createRef();
+        this.instaIdRef = React.createRef();
         this.state = {finalImageUrl:"/P1.PNG"};
         this.updatingImage = this.updatingImage.bind(this);
     }
 
     updatingImage(){
-        const items=["/P1.PNG", "/P2.PNG"];
+        const items=["/P1.PNG"];
     
         let finalImage = items[Math.floor(Math.random()*items.length)];
     
@@ -118,10 +116,10 @@ export default class Main extends React.Component{
 
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            const snapId = this.snapIdRef.current.value;
+            const instaId = this.instaIdRef.current.value;
 
-            if(snapId !== ''){
-                fire.database().ref('snapId').push().set( snapId );
+            if(instaId !== ''){
+                fire.database().ref('instaId').push().set( instaId );
                 this.props.onSubmit();
             }
           }
@@ -129,10 +127,10 @@ export default class Main extends React.Component{
 
     handleClick(e){
         e.preventDefault();
-        const snapId = this.snapIdRef.current.value;
+        const instaId = this.instaIdRef.current.value;
 
-        if(snapId !== ''){
-            fire.database().ref('snapId').push().set( snapId );
+        if(instaId !== ''){
+            fire.database().ref('instaId').push().set( instaId );
             this.props.onSubmit();
         }
     }
@@ -145,7 +143,7 @@ export default class Main extends React.Component{
                 </div>
                 <div className="CTAContainer" style={CTAContainerStyle}>
                     <span className="SpanContainer" style={SpanContainerStyle}>Join the queue</span>
-                    <input className="Input" style={InputStyle} type="text" placeholder="Enter Snapchat Id" ref={this.snapIdRef} onKeyPress={this.handleKeyPress}/>
+                    <input className="Input" style={InputStyle} type="text" placeholder="Enter instachat Id" ref={this.instaIdRef} onKeyPress={this.handleKeyPress}/>
                     <button className="Button" style={ButtonStyle} onClick={this.handleClick}>GET IN!</button>
                     <span className="Disclaimer" style={DisclaimerStyle}>
                         By clicking 'GET IN!', you are agreeing to our&nbsp;   
