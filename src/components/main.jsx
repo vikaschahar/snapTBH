@@ -143,7 +143,7 @@ export default class Main extends React.Component{
                 </div>
                 <div className="CTAContainer" style={CTAContainerStyle}>
                     <span className="SpanContainer" style={SpanContainerStyle}>Join the queue</span>
-                    <input className="Input" style={InputStyle} type="text" placeholder="Enter instachat Id" ref={this.instaIdRef} onKeyPress={this.handleKeyPress}/>
+                    <input className="Input" style={InputStyle} type="text" placeholder="Enter Instagram Id" ref={this.instaIdRef} onKeyPress={this.handleKeyPress}/>
                     <button className="Button" style={ButtonStyle} onClick={this.handleClick}>GET IN!</button>
                     <span className="Disclaimer" style={DisclaimerStyle}>
                         By clicking 'GET IN!', you are agreeing to our&nbsp;   
