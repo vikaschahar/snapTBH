@@ -95,7 +95,6 @@ export default class Main extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.instaIdRef = React.createRef();
         this.state = {finalImageUrl:"/P1.PNG"};
         this.updatingImage = this.updatingImage.bind(this);
     }
@@ -116,23 +115,15 @@ export default class Main extends React.Component{
 
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            const instaId = this.instaIdRef.current.value;
-
-            if(instaId !== ''){
-                fire.database().ref('instaId').push().set( instaId );
+        
                 this.props.onSubmit();
             }
-          }
     }
 
     handleClick(e){
         e.preventDefault();
-        const instaId = this.instaIdRef.current.value;
 
-        if(instaId !== ''){
-            fire.database().ref('instaId').push().set( instaId );
-            this.props.onSubmit();
-        }
+        this.props.onSubmit();
     }
 
     render(){
@@ -143,7 +134,6 @@ export default class Main extends React.Component{
                 </div>
                 <div className="CTAContainer" style={CTAContainerStyle}>
                     <span className="SpanContainer" style={SpanContainerStyle}>Join the queue</span>
-                    <input className="Input" style={InputStyle} type="text" placeholder="Enter Instagram Id" ref={this.instaIdRef} onKeyPress={this.handleKeyPress}/>
                     <button className="Button" style={ButtonStyle} onClick={this.handleClick}>GET IN!</button>
                     <span className="Disclaimer" style={DisclaimerStyle}>
                         By clicking 'GET IN!', you are agreeing to our&nbsp;   
