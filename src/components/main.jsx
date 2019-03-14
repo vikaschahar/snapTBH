@@ -1,5 +1,6 @@
 import React from 'react';
 import fire from '../fire.js';
+import ReactGA from 'react-ga';
 
 const MainStyle = {
     height:'100vh',
@@ -27,11 +28,6 @@ const ImageContainerStyle = {
 }
 
 const BackdropStyle = {
-    // position:'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0,
     display : 'inline-block',
     maxHeight:'99%',
     maxWidth:'99%',
@@ -122,6 +118,16 @@ export default class Main extends React.Component{
 
     handleClick(e){
         e.preventDefault();
+
+        //gtag('event', 'CLICK', {'event_category': 'SNAP_LANDING','event_label': 'SNAP_LANDING','value': 1});
+
+        ReactGA.event({
+            category: 'SNAP_LANDING',
+            action: 'GET_IN_BUTTON_CLICK',
+            label:'SNAP_LANDING',
+            value: 1
+          });
+        
 
         this.props.onSubmit();
     }

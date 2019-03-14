@@ -32,11 +32,27 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80958032-8"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-80958032-8');
-    </script>
+   function gtag(){dataLayer.push(arguments);}
+   filed = false;
+     if (document.visibilityState == "visible" && !filed) {
+       filega();
+     }
+     function handleVisibilityChange() {
+       if (document.visibilityState == "hidden") {
+         
+       } else if (!filed) {
+         filega();
+       }
+     }
+     document.addEventListener('visibilitychange', handleVisibilityChange, false);
+     function filega()
+     {
+         filed = true;
+       gtag('js', new Date());
+       gtag('config', 'UA-80958032-8');
+         
+     }
+    </script> 
     <div id="root"></div>
     <!--
       This HTML file is a template.
