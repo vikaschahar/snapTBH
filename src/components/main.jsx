@@ -91,12 +91,12 @@ export default class Main extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.state = {finalImageUrl:"/P1.PNG"};
+        this.state = {finalImageUrl:"/P1.png"};
         this.updatingImage = this.updatingImage.bind(this);
     }
 
     updatingImage(){
-        const items=["/P1.PNG"];
+        const items=["/P1.png"];
     
         let finalImage = items[Math.floor(Math.random()*items.length)];
     
