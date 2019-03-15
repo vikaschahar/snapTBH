@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './components/main.jsx';
 import Done from './components/done.jsx';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-80958032-8');
 
 class App extends Component {
 
